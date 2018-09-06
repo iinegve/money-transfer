@@ -1,20 +1,18 @@
 
-#### General
+### General
 
 Application is a simple web server providing RESTful API to create bank accounts, deposit money and transfer money between accounts.
 
-To build the app, run `mvn clean package`. This will run all the tests and package application into a single jar.
-To run it after the build, run `java -jar mt-webapp/target/money-transfer-webapp-1.0-SNAPSHOT.jar`
+To build the app: `mvn clean package`.
+To run it afterwars: `java -jar mt-webapp/target/money-transfer-webapp-1.0-SNAPSHOT.jar`
 
 You could use the following `curl` commands to play with the app, `<id>` has to correspond to uuid of an account:
 - create account `curl -X POST http://localhost:8080/account`
-- deposit money `curl -X POST --data 'amount=200' http://localhost:8080/account/<id>`
-- transfer money `curl -X POST --data 'amount=100' --data 'to=<id>' http://localhost:8080/account`
+- deposit money `curl -X POST --data 'amount=200' http://localhost:8080/account/<id>/deposit`
+- transfer money `curl -X POST --data 'amount=100' --data 'to=<id>' http://localhost:8080/account/<id>/transfer`
 - get all accounts `curl -X GET http://localhost:8080/account`
 
-
-
-#### Architecture
+### Architecture
 
 Web server is based on JettyServer.
 
